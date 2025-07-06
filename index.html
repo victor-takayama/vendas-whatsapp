@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Vende Mais - Transforme seu WhatsApp em uma Máquina de Vendas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #FFD700;
+            color: #128C7E;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .cta-button:hover {
+            background: #FFC700;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #128C7E;
+            margin-bottom: 20px;
+            font-size: 2em;
+            text-align: center;
+        }
+        
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f9f9f9;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial {
+            background: #f0f0f0;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #25D366;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            text-align: right;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #128C7E;
+        }
+        
+        .price-table {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .price-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .price-card.featured {
+            border-color: #25D366;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .price-card.featured::before {
+            content: "MAIS VENDIDO";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FF5722;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .price {
+            font-size: 3em;
+            color: #128C7E;
+            margin: 20px 0;
+        }
+        
+        .price small {
+            font-size: 0.5em;
+            opacity: 0.7;
+        }
+        
+        .bonus-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .bonus-list li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f5f5f5;
+            border-radius: 5px;
+            position: relative;
+            padding-left: 35px;
+        }
+        
+        .bonus-list li::before {
+            content: "✅";
+            position: absolute;
+            left: 10px;
+        }
+        
+        .guarantee {
+            text-align: center;
+            padding: 40px;
+            background: #FFF9C4;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        
+        .guarantee-badge {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        
+        .faq {
+            margin-top: 40px;
+        }
+        
+        .faq-item {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            background: #f0f0f0;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: #128C7E;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .countdown {
+            background: #FF5722;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 30px 0;
+            font-size: 1.3em;
+        }
+        
+        .timer {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .price-card {
+                width: 100%;
+            }
+            
+            .price-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📱 WhatsApp Vende Mais</h1>
+            <p class="subtitle">O Método Definitivo para Transformar seu WhatsApp em uma Máquina de Vendas em 7 Dias</p>
+            <a href="#ofertas" class="cta-button">QUERO VENDER MAIS AGORA!</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Problema -->
+        <section class="section">
+            <h2>Você Está Perdendo Dinheiro no WhatsApp? 😰</h2>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px;">
+                Se você tem WhatsApp mas não está faturando pelo menos <strong>R$ 5.000/mês</strong> com ele, 
+                está literalmente jogando dinheiro fora!
+            </p>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <div class="benefit-icon">❌</div>
+                    <h3>Mensagens Ignoradas</h3>
+                    <p>Seus clientes visualizam mas não respondem suas mensagens?</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">😴</div>
+                    <h3>Vendas Paradas</h3>
+                    <p>Tem contatos mas não consegue converter em vendas reais?</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤯</div>
+                    <h3>Sem Sistema</h3>
+                    <p>Trabalha muito mas os resultados não aparecem?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solução -->
+        <section class="section">
+            <h2>A Solução que Você Procurava! 🚀</h2>
+            <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px;">
+                Em apenas <strong>7 dias</strong>, você vai dominar as técnicas secretas que os vendedores de sucesso 
+                usam para faturar alto usando apenas o WhatsApp!
+            </p>
+
+            <div class="testimonial">
+                <p>"Em 15 dias aplicando o método, consegui fechar R$ 12.000 em vendas! 
+                Nunca imaginei que o WhatsApp poderia ser tão poderoso assim."</p>
+                <div class="testimonial-author">- Maria Silva, Consultora de Moda</div>
+            </div>
+
+            <div class="testimonial">
+                <p>"Sai de 0 para 47 clientes em 1 mês! Os scripts prontos são um verdadeiro 
+                tesouro. Vale cada centavo investido!"</p>
+                <div class="testimonial-author">- João Pedro, Personal Trainer</div>
+            </div>
+        </section>
+
+        <!-- O que você recebe -->
+        <section class="section">
+            <h2>O Que Você Vai Receber 📦</h2>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <div class="benefit-icon">📖</div>
+                    <h3>eBook Completo</h3>
+                    <p>13 capítulos com mais de 100 páginas de conteúdo prático e aplicável</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📝</div>
+                    <h3>50 Scripts Prontos</h3>
+                    <p>Templates testados para cada situação de venda</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Planilhas de Controle</h3>
+                    <p>Organize suas vendas e acompanhe resultados</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📅</div>
+                    <h3>Calendário Editorial</h3>
+                    <p>30 dias de conteúdo pronto para postar</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💬</div>
+                    <h3>100 Frases que Vendem</h3>
+                    <p>Copie e cole para converter mais</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">✅</div>
+                    <h3>Checklist 7 Dias</h3>
+                    <p>Passo a passo para implementar tudo</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Oferta Especial -->
+        <div class="countdown">
+            <p>⏰ OFERTA POR TEMPO LIMITADO!</p>
+            <div class="timer" id="timer">23:59:47</div>
+            <p>Depois o preço volta ao normal!</p>
+        </div>
+
+        <!-- Preços -->
+        <section class="section" id="ofertas">
+            <h2>Escolha o Melhor Plano para Você 💰</h2>
+            
+            <div class="price-table">
+                <div class="price-card">
+                    <h3>BÁSICO</h3>
+                    <p style="text-decoration: line-through; opacity: 0.5;">De R$ 97</p>
+                    <div class="price">R$ 39<small>,90</small></div>
+                    <ul class="bonus-list">
+                        <li>eBook Completo (PDF)</li>
+                        <li>Acesso Vitalício</li>
+                        <li>Atualizações Grátis</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="width: 100%; padding: 10px;">COMPRAR AGORA</a>
+                </div>
+
+                <div class="price-card featured">
+                    <h3>COMPLETO</h3>
+                    <p style="text-decoration: line-through; opacity: 0.5;">De R$ 197</p>
+                    <div class="price">R$ 97</div>
+                    <ul class="bonus-list">
+                        <li>Tudo do Básico +</li>
+                        <li>50 Scripts Prontos</li>
+                        <li>Planilhas de Vendas</li>
+                        <li>Calendário Editorial</li>
+                        <li>100 Frases que Vendem</li>
+                        <li>Checklist 7 Dias</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="width: 100%; padding: 10px;">OFERTA MAIS VENDIDA!</a>
+                </div>
+
+                <div class="price-card">
+                    <h3>VIP</h3>
+                    <p style="text-decoration: line-through; opacity: 0.5;">De R$ 397</p>
+                    <div class="price">R$ 197</div>
+                    <ul class="bonus-list">
+                        <li>Tudo do Completo +</li>
+                        <li>Grupo VIP no Telegram</li>
+                        <li>3 Aulas Exclusivas</li>
+                        <li>Suporte por 6 meses</li>
+                        <li>Certificado Digital</li>
+                        <li>Mentoria em Grupo</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="width: 100%; padding: 10px;">QUERO SER VIP</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Garantia -->
+        <section class="guarantee">
+            <div class="guarantee-badge">🛡️</div>
+            <h2>Garantia Incondicional de 7 Dias</h2>
+            <p style="font-size: 1.1em; margin-top: 20px;">
+                Se em 7 dias você não tiver pelo menos <strong>triplicado suas vendas</strong> no WhatsApp, 
+                devolvemos 100% do seu dinheiro. <strong>Sem perguntas, sem burocracia!</strong>
+            </p>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section">
+            <h2>Perguntas Frequentes 🤔</h2>
+            <div class="faq">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        Para quem é este método?
+                        <span>▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Para qualquer pessoa que vende produtos ou serviços e tem WhatsApp! 
+                        Funciona para: consultores, coaches, vendedores, lojistas, profissionais liberais, 
+                        prestadores de serviço, e qualquer um que queira aumentar suas vendas.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        Preciso ter experiência com vendas?
+                        <span>▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Não! O método foi criado pensando em iniciantes. Tudo é explicado passo a passo, 
+                        com exemplos práticos e scripts prontos para você só copiar e colar.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        Em quanto tempo verei resultados?
+                        <span>▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Muitos alunos relatam primeiras vendas em 24-48 horas! Mas o método completo 
+                        é projetado para ser implementado em 7 dias, com resultados crescentes a partir daí.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        O acesso é vitalício?
+                        <span>▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Sim! Uma vez que você compra, o acesso é seu para sempre. 
+                        Incluindo todas as atualizações futuras sem custo adicional.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        Como recebo o material?
+                        <span>▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Assim que o pagamento for confirmado, você recebe um email com todos os links 
+                        de download. O acesso é imediato e você pode baixar tudo para seu computador ou celular.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="section" style="text-align: center; background: #25D366; color: white;">
+            <h2 style="color: white;">Chegou a Hora de Transformar seu WhatsApp! 💪</h2>
+            <p style="font-size: 1.2em; margin: 30px 0;">
+                Você tem duas opções:<br><br>
+                1️⃣ Continuar perdendo vendas todos os dias<br>
+                2️⃣ Investir em você e começar a faturar de verdade<br><br>
+                <strong>A escolha é sua!</strong>
+            </p>
+            <a href="#ofertas" class="cta-button" style="background: #FFD700; color: #128C7E;">
+                SIM! QUERO VENDER MAIS NO WHATSAPP!
+            </a>
+            <p style="margin-top: 20px; opacity: 0.9;">
+                🔒 Compra 100% Segura | 📧 Acesso Imediato | 💳 Parcelamento em até 12x
+            </p>
+        </section>
+    </div>
+
+    <script>
+        // Countdown Timer
+        function updateTimer() {
+            const timer = document.getElementById('timer');
+            let time = timer.innerText.split(':');
+            let hours = parseInt(time[0]);
+            let minutes = parseInt(time[1]);
+            let seconds = parseInt(time[2]);
+            
+            seconds--;
+            
+            if (seconds < 0) {
+                seconds = 59;
+                minutes--;
+                
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                    
+                    if (hours < 0) {
+                        hours = 23;
+                    }
+                }
+            }
+            
+            timer.innerText = 
+                String(hours).padStart(2, '0') + ':' + 
+                String(minutes).padStart(2, '0') + ':' + 
+                String(seconds).padStart(2, '0');
+        }
+        
+        setInterval(updateTimer, 1000);
+        
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const answer = element.querySelector('.faq-answer');
+            const arrow = element.querySelector('span');
+            
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+                arrow.innerText = '▼';
+            } else {
+                answer.style.display = 'block';
+                arrow.innerText = '▲';
+            }
+        }
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
